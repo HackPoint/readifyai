@@ -1,1 +1,60 @@
-/ReadifyAI.sln
+# Rider-specific
+.idea/
+*.iml
+*.sln.iml
+out/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Rider logs
+.idea/
+.idea_modules/
+
+# Coverage Reports
+*.coverlet.*
+coverage-results/
+coverage-results-*
+
+# Database files
+*.mdf
+*.ldf
+*.ndf
+
+# Debug and Release Configuration files
+appsettings.Development.json
+appsettings.Staging.json
+appsettings.Production.json
+
+# OS Generated Files
+[Dd]esktop.ini
+[Tt]humbs.db
