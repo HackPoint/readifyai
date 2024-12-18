@@ -16,7 +16,7 @@ public class ContentSimilarityModel : nn.Module {
         RegisterComponents();
     }
 
-    public Tensor Forward(Tensor input) {
+    public virtual Tensor Forward(Tensor input) {
         var clippedInput = input.clamp(0, _vocabularySize - 1);
         var embedded = _embeddingLayer.forward(clippedInput);
         var meanEmbedding = embedded.mean([1]);

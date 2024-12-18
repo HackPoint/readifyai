@@ -16,11 +16,11 @@ public class DataPreparer {
 
         var tokens = content
             .Split(new[] { ' ', '\t', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries)
-            .Select(word => (long)word.GetHashCode() % 10000) // Simple hashing for token IDs
+            .Select(word => (long)word.GetHashCode() % 10000)
             .Take(maxLength)
             .ToArray();
 
-        return torch.tensor(tokens, torch.ScalarType.Int64).unsqueeze(0); // Add batch dimension
+        return torch.tensor(tokens, torch.ScalarType.Int64).unsqueeze(0);
     }
 
     /// <summary>

@@ -115,7 +115,7 @@ public class DataPreparerTests {
             var imagePaths = new List<string> { corruptedImagePath };
 
             // Act & Assert
-            Assert.Throws<InvalidOperationException>(() => _dataPreparer.PrepareImages(imagePaths));
+            Assert.Throws<UnknownImageFormatException>(() => _dataPreparer.PrepareImages(imagePaths));
         }
         finally
         {

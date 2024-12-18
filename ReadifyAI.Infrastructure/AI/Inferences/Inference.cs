@@ -14,10 +14,12 @@ public class Inference {
         _model.eval();
 
         using (torch.no_grad()) {
+            // Ensure the input tensor has the correct type
             if (input.dtype != torch.ScalarType.Int64)
             {
                 input = input.to(torch.ScalarType.Int64);
             }
+
             var output = _model.Forward(input);
             return output.item<float>();
         }
