@@ -1,0 +1,43 @@
+### Health Check
+GET {{HostAddress}}
+Accept: application/json
+
+###
+
+### Compare Two Contents
+POST {{HostAddress}}/api/ai/compare
+Content-Type: application/json
+
+{
+  "sessionId": "session-1",
+  "content1": "Test content 1",
+  "content2": "Test content 2"
+}
+
+###
+
+### Train the Model
+POST {{HostAddress}}/api/ai/train
+Content-Type: application/json
+
+[
+  {
+    "content": "Test content 1",
+    "target": 0.9
+  },
+  {
+    "content": "Test content 2",
+    "target": 0.1
+  }
+]
+
+###
+
+### Predict Similarity for Single Content
+POST {{HostAddress}}/api/ai/predict
+Content-Type: application/json
+
+{
+  "sessionId": "session-1",
+  "content": "Test content to predict"
+}

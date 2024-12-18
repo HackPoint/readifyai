@@ -18,6 +18,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{F13FEE29
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadifyAI.Infrastructure.UnitTests", "ReadifyAI.Infrastructure.UnitTests\ReadifyAI.Infrastructure.UnitTests.csproj", "{D575FCDD-8543-4671-AC04-7555F20019E4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadifyAI.Api", "ReadifyAI.Api\ReadifyAI.Api.csproj", "{8940E583-496F-479A-BFAA-57939DA634FC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2C761AF4-FAEB-4DA9-BEEC-2B5E0AE53AB7}"
+	ProjectSection(SolutionItems) = preProject
+		compose.yaml = compose.yaml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +37,7 @@ Global
 		{78928FB0-5B11-4303-8DB0-E02FE9EF202D} = {410C35A7-FB5F-4B11-BBED-C61E1DF16557}
 		{96E05041-1B37-4AA1-82AC-EA7DEDBC09AE} = {410C35A7-FB5F-4B11-BBED-C61E1DF16557}
 		{D575FCDD-8543-4671-AC04-7555F20019E4} = {F13FEE29-E064-4E27-948B-D91C7E5E5330}
+		{8940E583-496F-479A-BFAA-57939DA634FC} = {410C35A7-FB5F-4B11-BBED-C61E1DF16557}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{31E0A0DB-345E-4675-A0A2-B4E994C793EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -56,5 +64,9 @@ Global
 		{D575FCDD-8543-4671-AC04-7555F20019E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D575FCDD-8543-4671-AC04-7555F20019E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D575FCDD-8543-4671-AC04-7555F20019E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8940E583-496F-479A-BFAA-57939DA634FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8940E583-496F-479A-BFAA-57939DA634FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8940E583-496F-479A-BFAA-57939DA634FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8940E583-496F-479A-BFAA-57939DA634FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

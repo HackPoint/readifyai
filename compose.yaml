@@ -1,0 +1,6 @@
+﻿services:
+  readifyai.api:
+    image: readifyai.api
+    build:
+      context: .
+      dockerfile: ReadifyAI.Api/Dockerfile

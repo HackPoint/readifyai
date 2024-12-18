@@ -23,8 +23,6 @@ public class ContentSimilarityTrainer {
             // Backward pass and optimize
             loss.backward();
             optimizer.step();
-
-            Console.WriteLine($"Epoch {epoch}, Loss: {loss.item<float>()}");
         }
     }
 }

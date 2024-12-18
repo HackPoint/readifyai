@@ -6,8 +6,26 @@ using SixLabors.ImageSharp.Processing;
 
 namespace Readify.Infrastructure.AI.Preparation;
 
-public class DataPreparer {
-    private const int DefaultMaxLength = 256;
+public interface IModelDataPreparer {
+    torch.Tensor TokenizeText(string content, int maxLength = DataPreparer.DefaultMaxLength);
+
+    /// <summary>
+    /// Prepares a collection of images as tensors for AI processing.
+    /// </summary>
+    /// <param name="imagePaths">The paths to the image files.</param>
+    /// <returns>A list of tensors representing the preprocessed images.</returns>
+    List<torch.Tensor> PrepareImages(IEnumerable<string> imagePaths);
+
+    /// <summary>
+    /// Preprocesses a single image and converts it into a normalized tensor.
+    /// </summary>
+    /// <param name="imageData">The image data as a byte array.</param>
+    /// <returns>A tensor representing the preprocessed image.</returns>
+    torch.Tensor PreprocessImage(byte[] imageData);
+}
+
+public class DataPreparer : IModelDataPreparer {
+    public const int DefaultMaxLength = 256;
 
     public torch.Tensor TokenizeText(string content, int maxLength = DefaultMaxLength) {
         if (string.IsNullOrWhiteSpace(content)) {
@@ -48,7 +66,7 @@ public class DataPreparer {
     /// </summary>
     /// <param name="imageData">The image data as a byte array.</param>
     /// <returns>A tensor representing the preprocessed image.</returns>
-    private torch.Tensor PreprocessImage(byte[] imageData) {
+    public torch.Tensor PreprocessImage(byte[] imageData) {
         // Load image using ImageSharp
         using var image = Image.Load<Rgb24>(imageData);
 
