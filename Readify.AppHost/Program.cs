@@ -1,6 +1,10 @@
-var builder = DistributedApplication.CreateBuilder(args);
+using Microsoft.Extensions.DependencyInjection;
 
+var builder = DistributedApplication.CreateBuilder(args);
 builder.AddProject<Projects.ReadifyAI_Api>("ai-service")
-    .WithExternalHttpEndpoints();
-    
+    .WithExternalHttpEndpoints()
+    .ApplicationBuilder
+    .Services
+    .AddHealthChecks();
+
 builder.Build().Run();

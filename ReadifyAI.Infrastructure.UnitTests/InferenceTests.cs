@@ -58,26 +58,3 @@ public class InferenceTests {
         Assert.Equal(expectedSimilarity, result, precision: 5); // Allow small rounding differences
     }
 }
-
-internal class FakeContentSimilarityModel : ContentSimilarityModel {
-    public override Tensor Forward(torch.Tensor input) {
-        // Ensure the input tensor is in the correct type
-        if (input.dtype != ScalarType.Int64) {
-            input = input.to(ScalarType.Int64);
-        }
-
-        // Predefined inputs for comparison
-        var input1 = tensor(new long[] { 1, 2, 3 }, dtype: ScalarType.Int64).unsqueeze(0); // Shape [1, 3]
-        var input2 = tensor(new long[] { 4, 5, 6 }, dtype: ScalarType.Int64).unsqueeze(0); // Shape [1, 3]
-
-        // Compare tensors using .all().to_bool_scalar() safely
-        if (input.equal(input1).all().ToBoolean()) {
-            return tensor([0.1f, 0.2f, 0.3f], dtype: ScalarType.Float32).unsqueeze(0); // Shape [1, 3]
-        }
-        else if (input.equal(input2).all().ToBoolean()) {
-            return tensor([0.4f, 0.5f, 0.6f], dtype: ScalarType.Float32).unsqueeze(0); // Shape [1, 3]
-        }
-
-        throw new InvalidOperationException("Unexpected input tensor");
-    }
-}

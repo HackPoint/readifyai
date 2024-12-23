@@ -16,6 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Readify.ServiceDefaults\Readify.ServiceDefaults.csproj" />
       <ProjectReference Include="..\ReadifyAI.Application\ReadifyAI.Application.csproj" />
       <ProjectReference Include="..\ReadifyAI.Infrastructure\ReadifyAI.Infrastructure.csproj" />
     </ItemGroup>

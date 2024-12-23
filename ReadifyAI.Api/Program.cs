@@ -4,12 +4,13 @@ using Readify.Infrastructure.AI.Models;
 using Readify.Infrastructure.AI.Preparation;
 using Readify.Infrastructure.Services;
 using ReadifyAI.Application.Interfaces;
-
 namespace ReadifyAI.Api;
+using Microsoft.Extensions.Hosting;
 
 public class Program {
     public static void Main(string[] args) {
         var builder = WebApplication.CreateSlimBuilder(args);
+        builder.AddServiceDefaults();
         
         builder.Services.ConfigureHttpJsonOptions(options =>
         {
@@ -23,8 +24,9 @@ public class Program {
             var model = sp.GetRequiredService<ContentSimilarityModel>();
             return new Inference(model);
         });
+        
         var app = builder.Build();
-        app.MapGet("", () => "API is running!");
+        app.MapGet("/", () => "API is running!");
         
         var aiApi = app.MapGroup("/api/ai");
         aiApi.MapPost("/predict", async (PredictionRequest request, IInferenceService service) => {
@@ -48,5 +50,8 @@ public class Program {
 [JsonSerializable(typeof(PredictionRequest))]
 [JsonSerializable(typeof(PredictionResponse))]
 [JsonSerializable(typeof(ComparisonRequest))]
+[JsonSerializable(typeof(bool))]
+[JsonSerializable(typeof(int))]
+[JsonSerializable(typeof(double))]
 internal partial class AppJsonSerializerContext : JsonSerializerContext {
 }

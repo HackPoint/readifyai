@@ -37,6 +37,14 @@ public class DataPreparer : IModelDataPreparer {
             .Select(word => (long)word.GetHashCode() % 10000)
             .Take(maxLength)
             .ToArray();
+        
+        // Pad tokens to ensure consistent shape
+        if (tokens.Length < maxLength)
+        {
+            var paddedTokens = new long[maxLength];
+            Array.Copy(tokens, paddedTokens, tokens.Length);
+            tokens = paddedTokens;
+        }
 
         return torch.tensor(tokens, torch.ScalarType.Int64).unsqueeze(0);
     }

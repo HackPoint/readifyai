@@ -22,6 +22,9 @@ public class InferenceService(Inference inference, IModelDataPreparer modelDataP
     }
 
     public Task<double> CompareAsync(string sessionId, string content1, string content2) {
+        if(string.IsNullOrWhiteSpace(content1) || string.IsNullOrWhiteSpace(content2))
+            throw new InvalidOperationException("Unable to Compare content with empty string.");
+        
         var tensorContent1 = modelDataPreparer.TokenizeText(content1);
         var tensorContent2 = modelDataPreparer.TokenizeText(content2);
         var compare = inference.Compare(tensorContent1, tensorContent2);
@@ -33,7 +36,8 @@ public class InferenceService(Inference inference, IModelDataPreparer modelDataP
         foreach ((string content, float target) in trainingData) {
             var inputTensor = modelDataPreparer.TokenizeText(content);
             var targetTensor = torch.tensor([target], torch.ScalarType.Float32);
-            _trainer.TrainModel(new ContentSimilarityModel(), inputTensor, targetTensor);
+            var model = new ContentSimilarityModel();
+            _trainer.TrainModel(model, inputTensor, targetTensor);
         }
 
         return Task.CompletedTask;

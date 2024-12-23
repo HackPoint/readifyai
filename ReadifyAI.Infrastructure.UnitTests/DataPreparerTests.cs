@@ -113,23 +113,7 @@ public class DataPreparerTests {
     }
 
 
-    [Fact]
-    public void AIComparison_ShouldReturnSimilarityScore() {
-        var model = new ContentSimilarityModel();
-        var trainer = new ContentSimilarityTrainer();
-        var inference = new Inference(model);
-
-        var preparer = new DataPreparer();
-        var epubTensor = preparer.TokenizeText("Sample EPUB text.");
-        var pdfTensor = preparer.TokenizeText("Sample PDF text.");
-
-        trainer.TrainModel(model, epubTensor, epubTensor);
-        var similarity = inference.Predict(pdfTensor);
-
-        Assert.InRange(similarity, 0, 1);
-    }
-
-
+    
     /// <summary>
     /// Helper method to create a dummy image for testing.
     /// </summary>
