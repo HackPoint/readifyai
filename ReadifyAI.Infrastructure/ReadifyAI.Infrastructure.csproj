@@ -6,7 +6,6 @@
 
     <ItemGroup>
         <PackageReference Include="EpubSharp.dll"/>
-        <PackageReference Include="HtmlRenderer.PdfSharp"/>
         <PackageReference Include="SixLabors.ImageSharp"/>
         <PackageReference Include="TorchSharp"/>
         <PackageReference Include="TorchSharp-cpu"/>

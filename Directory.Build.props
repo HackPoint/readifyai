@@ -1,8 +1,22 @@
 <Project>
     <PropertyGroup>
-        <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
         <TargetFramework>net9.0</TargetFramework>
+        <LangVersion>latest</LangVersion>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <AnalysisLevel>latest</AnalysisLevel>
+        <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+        <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <NuGetAuditLevel>high</NuGetAuditLevel>
+    </PropertyGroup>
+    <PropertyGroup>
+        <WarningsNotAsErrors>NU1901;NU1902;NU1903;NU1904</WarningsNotAsErrors>
+        <NoWarn>$(NoWarn);NETSDK1206</NoWarn>
+    </PropertyGroup>
+    <PropertyGroup>
+        <ProductName>ReadifyAI</ProductName>
+        <Product>Read and Compare pdf's using AI</Product>
+        <Version>1.0.0</Version>
     </PropertyGroup>
 </Project>
